@@ -1,0 +1,56 @@
+# Klasa postaci
+class Postac:
+    def __init__(self, imie, klasa, hp, atak_min, atak_max):
+        self.imie = imie
+        self.klasa = klasa
+        self.hp = hp
+        self.atak_min = atak_min
+        self.atak_max = atak_max
+
+    def opis(self):
+        print(f"\nTwój bohater to {self.imie}, klasa: {self.klasa}.")
+        print(f"HP: {self.hp}, Atak: {self.atak_min}-{self.atak_max}\n")
+
+# Funkcja kreatora postaci
+def kreator_postaci():
+    print("Witaj w kreatorze postaci!")
+    imie = input("Podaj imię swojej postaci: ")
+
+    # Wybór klasy postaci
+    print("\nWybierz klasę swojej postaci:")
+    print("1. Wojownik - HP: 100, Atak: 10-20")
+    print("2. Mag - HP: 80, Atak: 15-25")
+    print("3. Łucznik - HP: 90, Atak: 12-18")
+    
+    wybor_klasy = input("Wybierz klasę (1/2/3): ")
+
+    if wybor_klasy == "1":
+        klasa = "Wojownik"
+        hp = 100
+        atak_min = 10
+        atak_max = 20
+    elif wybor_klasy == "2":
+        klasa = "Mag"
+        hp = 80
+        atak_min = 15
+        atak_max = 25
+    elif wybor_klasy == "3":
+        klasa = "Łucznik"
+        hp = 90
+        atak_min = 12
+        atak_max = 18
+    else:
+        print("Niepoprawny wybór, tworzę domyślnego Wojownika.")
+        klasa = "Wojownik"
+        hp = 100
+        atak_min = 10
+        atak_max = 20
+
+    # Tworzenie postaci
+    postac = Postac(imie, klasa, hp, atak_min, atak_max)
+    postac.opis()
+
+    return postac
+
+# Tworzenie postaci za pomocą kreatora
+bohater = kreator_postaci()
